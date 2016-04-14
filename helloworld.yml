@@ -6,13 +6,31 @@
 
   - name: Runtime Echo
     shell: echo "Runtime variable {{ runtime_var }}"
+    when: runtime_var is defined
+    tags:
+      - runtime
+  - name: Runtime Echo Failed
+    shell: echo "Runtime variable not given"
+    when: runtime_var is undefined
     tags:
       - runtime
   - name: Template Echo
     shell: echo "Job Template variable {{ template_var }}"
+    when: template_var is defined
+    tags:
+      - job_template
+  - name: Template Echo
+    shell: echo "Job Template variable not given"
+    when: template_var is undefined
     tags:
       - job_template
   - name: Echo Survey
     shell: echo "Survey Varaible {{ survey_var }}"
+    when: survey_var is defined
+    tags:
+      - survey
+  - name: Echo Survey
+    shell: echo "Survey Varaible not given"
+    when: survey_var is undefined
     tags:
       - survey
