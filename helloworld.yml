@@ -5,14 +5,14 @@
   tasks:
 
   - name: Runtime Echo
-    shell: echo "Runtime variable: {{ runtime_var }}"
+    shell: echo "Runtime variable {{ runtime_var }}"
     tags:
       - runtime
   - name: Template Echo
-    shell: echo "Job Template variable: {{ template_var }}"
+    shell: echo "Job Template variable {{ template_var }}"
     tags:
       - job_template
   - name: Echo Survey
-    shell: echo "Survey Varaible: {{ survey_var }}"
+    shell: echo "Survey Varaible {{ survey_var }}"
     tags:
       - survey
