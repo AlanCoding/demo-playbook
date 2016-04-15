@@ -9,22 +9,10 @@
     tags:
       - runtime
   - name: Template Echo
-    shell: echo "Job Template variable {{ template_var }}"
-    when: template_var is defined
+    shell: echo "Job Template variable {{ template_var|default('not given') }}"
     tags:
       - job_template Missing
-  - name: Template Echo
-    shell: echo "Job Template variable not given"
-    when: template_var is undefined
-    tags:
-      - job_template
   - name: Echo Survey
-    shell: echo "Survey Varaible {{ survey_var }}"
-    when: survey_var is defined
-    tags:
-      - survey
-  - name: Echo Survey Missing
-    shell: echo "Survey Varaible not given"
-    when: survey_var is undefined
+    shell: echo "Survey Varaible {{ survey_var|default('not given') }}"
     tags:
       - survey
