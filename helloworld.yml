@@ -5,7 +5,7 @@
   tasks:
 
   - name: Runtime Echo
-    shell: echo "Runtime variable {{ runtime_var, when: runtime_var is defined }}"
+    shell: echo "Runtime variable {{ runtime_var|default('not given') }}"
     tags:
       - runtime
   - name: Template Echo
